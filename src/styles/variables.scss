@@ -1,0 +1,76 @@
+// iOS Design System Colors
+$color-primary: #007aff;
+$color-secondary: #5856d6;
+$color-success: #34c759;
+$color-warning: #ff9500;
+$color-danger: #ff3b30;
+
+// Background Colors
+$color-background: #ffffff;
+$color-bg-secondary: #f2f2f7;
+$color-bg-tertiary: #e5e5ea;
+$color-bg-grouped: #f2f2f7;
+
+// Text Colors
+$color-text-main: #000000;
+$color-text-secondary: #8e8e93;
+$color-text-tertiary: #c7c7cc;
+$color-text-link: #007aff;
+
+// Border & Separator
+$color-border: #c6c6c8;
+$color-separator: #e5e5ea;
+$color-separator-opaque: #c6c6c8;
+
+// Spacing (iOS 8pt grid)
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+$spacing-xxl: 48px;
+
+// Typography (iOS Dynamic Type)
+$font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
+$font-family-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+
+$font-size-xs: 12px;    // Caption
+$font-size-sm: 14px;    // Footnote
+$font-size-md: 16px;    // Body
+$font-size-lg: 18px;    // Title3
+$font-size-xl: 20px;    // Title2
+$font-size-xxl: 22px;   // Title1
+$font-size-xxxl: 28px;  // Large Title
+
+// Font Weights
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Line Heights
+$line-height-tight: 1.2;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.75;
+
+// Border Radius (iOS Style)
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+$border-radius-xl: 16px;
+$border-radius-xxl: 20px;
+$border-radius-pill: 9999px;
+
+// iOS Safe Area
+$safe-area-top: env(safe-area-inset-top);
+$safe-area-bottom: env(safe-area-inset-bottom);
+$safe-area-left: env(safe-area-inset-left);
+$safe-area-right: env(safe-area-inset-right);
+
+// TabBar
+$tabbar-height: 49px;
+$tabbar-total-height: calc(49px + env(safe-area-inset-bottom));
+
+// NavigationBar
+$navbar-height: 44px;
+$navbar-large-title-height: 96px;

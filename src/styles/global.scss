@@ -1,0 +1,90 @@
+@import './variables';
+@import './mixins';
+
+// iOS Reset & Base Styles
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  height: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: $font-family;
+  font-size: $font-size-md;
+  line-height: $line-height-normal;
+  background-color: $color-background;
+  color: $color-text-main;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100%;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+// iOS Typography Scale
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-display;
+  font-weight: $font-weight-bold;
+  line-height: $line-height-tight;
+}
+
+h1 { font-size: $font-size-xxxl; }
+h2 { font-size: $font-size-xxl; }
+h3 { font-size: $font-size-xl; }
+h4 { font-size: $font-size-lg; }
+h5 { font-size: $font-size-md; }
+h6 { font-size: $font-size-sm; }
+
+// iOS Link Styles
+a {
+  text-decoration: none;
+  color: $color-text-link;
+}
+
+// iOS List Styles
+ul, li {
+  list-style: none;
+}
+
+// iOS Button Reset
+button {
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+// iOS Image Styles
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+// iOS Form Elements
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit;
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+// iOS Scroll Behavior
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+// iOS Touch Action
+button, a {
+  touch-action: manipulation;
+}

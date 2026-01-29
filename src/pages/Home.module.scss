@@ -1,0 +1,248 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+.ecommerce {
+  display: flex;
+  flex-direction: column;
+  background: $color-background;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+
+  // Sticky Header
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: $color-background;
+    padding: $spacing-sm $spacing-md;
+
+    .searchBar {
+      display: flex;
+      align-items: center;
+      column-gap: $spacing-sm;
+      background: $color-bg-secondary;
+      border-radius: $border-radius-md;
+      padding: $spacing-sm $spacing-md;
+      transition: all 0.2s ease;
+
+      &:active {
+        background: $color-bg-tertiary;
+        transform: scale(0.99);
+      }
+
+      .searchIcon {
+        color: $color-text-secondary;
+        font-size: $font-size-lg;
+        width: 24px;
+        height: 24px;
+      }
+
+      .placeholder {
+        color: $color-text-secondary;
+        font-size: $font-size-md;
+        line-height: $line-height-normal;
+      }
+    }
+  }
+
+  // Scrollable Content
+  .scrollContent {
+    flex: 1;
+    padding-bottom: $tabbar-total-height;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+
+  // Quick Actions - iOS Style
+  .quickActions {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    margin: $spacing-sm $spacing-md 0;
+
+    .actionItem {
+      display: flex;
+      flex-shrink: 0;
+      align-items: center;
+      gap: 4px;
+      border: 0.5px solid $color-separator;
+      border-radius: $border-radius-md;
+      padding: $spacing-xs $spacing-sm;
+      cursor: pointer;
+      background: $color-background;
+
+      &:active {
+        background: $color-bg-secondary;
+      }
+
+      .actionIcon {
+        font-size: $font-size-md;
+        color: $color-text-main;
+        width: 18px;
+        height: 18px;
+      }
+
+      span {
+        font-size: $font-size-sm;
+        font-weight: $font-weight-medium;
+        line-height: $line-height-normal;
+        color: $color-text-main;
+      }
+    }
+  }
+
+  // Banner - iOS Style
+  .banner {
+    margin: 0 $spacing-md;
+    height: 160px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: $border-radius-xl;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+
+    .bannerContent {
+      text-align: center;
+      color: white;
+      z-index: 1;
+
+      .bannerTitle {
+        font-size: $font-size-xxl;
+        font-weight: $font-weight-bold;
+        margin-bottom: $spacing-xs;
+        font-family: $font-family-display;
+      }
+
+      .bannerSubtitle {
+        font-size: $font-size-md;
+        opacity: 0.9;
+      }
+    }
+
+    .pagination {
+      position: absolute;
+      bottom: $spacing-sm;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 6px;
+
+      .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.4);
+
+        &.active {
+          background: white;
+          width: 18px;
+          border-radius: 3px;
+        }
+      }
+    }
+  }
+
+  // Section Title - iOS Style
+  .sectionTitle {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $color-text-main;
+    padding: 0 $spacing-md;
+    margin-top: $spacing-sm;
+    font-family: $font-family-display;
+  }
+
+  // Categories - iOS Style
+  .categoryList {
+    display: flex;
+    gap: $spacing-md;
+    padding: $spacing-sm $spacing-md;
+    overflow-x: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .categoryItem {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: $spacing-xs;
+      cursor: pointer;
+
+      &:active {
+        opacity: 0.7;
+      }
+
+      .imageWrapper {
+        @include ios-image-circle(76px);
+      }
+
+      .catTitle {
+        font-size: $font-size-sm;
+        font-weight: $font-weight-medium;
+        color: $color-text-main;
+        text-align: center;
+      }
+    }
+  }
+
+  // Product List - iOS Style
+  .productList {
+    display: flex;
+    gap: $spacing-md;
+    padding: $spacing-sm $spacing-md;
+    overflow-x: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .productCard {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-sm;
+      background: $color-background;
+      cursor: pointer;
+
+      &:active {
+        opacity: 0.8;
+      }
+
+      .productImageWrapper {
+        @include ios-image-square(148px, $border-radius-lg);
+      }
+
+      .productInfo {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+
+        .brand {
+          font-size: $font-size-sm;
+          color: $color-text-secondary;
+        }
+
+        .productName {
+          font-size: $font-size-sm;
+          color: $color-text-main;
+          @include text-ellipsis;
+          max-width: 148px;
+        }
+
+        .productPrice {
+          font-size: $font-size-md;
+          font-weight: $font-weight-semibold;
+          color: $color-text-main;
+          margin-top: 2px;
+        }
+      }
+    }
+  }
+}

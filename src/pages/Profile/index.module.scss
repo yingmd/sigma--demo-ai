@@ -1,0 +1,119 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: $color-bg-secondary;
+  padding-bottom: $tabbar-total-height;
+
+  .header {
+    background: $color-background;
+    padding: $spacing-xl $spacing-md $spacing-lg;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-md;
+
+    .avatar {
+      @include ios-image-circle(80px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      color: $color-text-secondary;
+      border: 3px solid $color-background;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .info {
+      text-align: center;
+
+      .name {
+        font-size: $font-size-xl;
+        font-weight: $font-weight-semibold;
+        color: $color-text-main;
+        margin-bottom: 4px;
+        font-family: $font-family-display;
+      }
+
+      .email {
+        font-size: $font-size-sm;
+        color: $color-text-secondary;
+      }
+    }
+
+    .stats {
+      display: flex;
+      gap: $spacing-xl;
+      margin-top: $spacing-sm;
+
+      .statItem {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+
+        .value {
+          font-size: $font-size-lg;
+          font-weight: $font-weight-bold;
+          color: $color-text-main;
+          font-family: $font-family-display;
+        }
+
+        .label {
+          font-size: $font-size-xs;
+          color: $color-text-secondary;
+        }
+      }
+    }
+  }
+
+  .menu {
+    margin-top: $spacing-md;
+    background: $color-background;
+
+    .menuItem {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: $spacing-md;
+      margin: 0 $spacing-md;
+      border-bottom: 0.5px solid $color-separator;
+      cursor: pointer;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &:active {
+        background: $color-bg-secondary;
+      }
+
+      .left {
+        display: flex;
+        align-items: center;
+        gap: $spacing-sm;
+        font-size: $font-size-md;
+        color: $color-text-main;
+
+        .icon {
+          font-size: $font-size-lg;
+          color: $color-text-secondary;
+          width: 24px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      }
+
+      .right {
+        display: flex;
+        align-items: center;
+        color: $color-text-tertiary;
+        font-size: $font-size-lg;
+      }
+    }
+  }
+}
