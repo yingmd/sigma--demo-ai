@@ -23,52 +23,52 @@
   overflow: hidden;
 }
 
-// iOS Image Styles
-@mixin ios-image($size: 100%, $radius: 0, $ratio: 1/1) {
+// iOS Image Styles - 使用参数避免依赖全局变量
+@mixin ios-image($size: 100%, $radius: 0, $ratio: 1/1, $bg-color: #f2f2f7) {
   width: $size;
   aspect-ratio: $ratio;
   border-radius: $radius;
   object-fit: cover;
   object-position: center;
-  background-color: $color-bg-secondary;
+  background-color: $bg-color;
 }
 
-@mixin ios-image-square($size, $radius: $border-radius-lg) {
+@mixin ios-image-square($size, $radius: 12px, $bg-color: #f2f2f7) {
   width: $size;
   height: $size;
   border-radius: $radius;
   object-fit: cover;
   object-position: center;
-  background-color: $color-bg-secondary;
+  background-color: $bg-color;
 }
 
-@mixin ios-image-circle($size) {
+@mixin ios-image-circle($size, $bg-color: #f2f2f7) {
   width: $size;
   height: $size;
   border-radius: 50%;
   object-fit: cover;
   object-position: center;
-  background-color: $color-bg-secondary;
+  background-color: $bg-color;
 }
 
-// iOS Card Styles
-@mixin ios-card($padding: $spacing-md) {
-  background: $color-background;
-  border-radius: $border-radius-xl;
+// iOS Card Styles - 使用参数避免依赖全局变量
+@mixin ios-card($padding: 16px, $bg: #ffffff, $radius: 16px) {
+  background: $bg;
+  border-radius: $radius;
   padding: $padding;
 }
 
-// iOS Button Styles
-@mixin ios-button($bg: $color-primary, $color: white, $radius: $border-radius-pill) {
+// iOS Button Styles - 使用参数避免依赖全局变量
+@mixin ios-button($bg: #007aff, $color: white, $radius: 9999px, $padding: 8px 16px) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: $spacing-sm $spacing-md;
+  padding: $padding;
   background: $bg;
   color: $color;
   border-radius: $radius;
-  font-weight: $font-weight-semibold;
-  font-size: $font-size-md;
+  font-weight: 600;
+  font-size: 16px;
   transition: opacity 0.2s;
 
   &:active {
@@ -77,9 +77,9 @@
 }
 
 // iOS Separator
-@mixin ios-separator {
+@mixin ios-separator($color: #e5e5ea) {
   height: 0.5px;
-  background: $color-separator;
+  background: $color;
   transform: scaleY(0.5);
   transform-origin: 0 0;
 }

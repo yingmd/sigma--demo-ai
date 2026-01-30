@@ -1,5 +1,5 @@
-@import './variables';
-@import './mixins';
+@use 'variables' as *;
+@use 'mixins' as *;
 
 // iOS Reset & Base Styles
 * {
@@ -60,6 +60,7 @@ button {
   background: none;
   cursor: pointer;
   -webkit-appearance: none;
+  appearance: none;
 }
 
 // iOS Image Styles
@@ -75,6 +76,7 @@ input, textarea, select {
   font-family: inherit;
   font-size: inherit;
   -webkit-appearance: none;
+  appearance: none;
   border-radius: 0;
 }
 

@@ -1,166 +1,172 @@
 @use '../styles/variables' as *;
 @use '../styles/mixins' as *;
 
+// 从 .figma 同步的精确样式
 .ecommerce {
   display: flex;
   flex-direction: column;
-  background: $color-background;
+  background: #ffffff;
   min-height: 100vh;
   width: 100%;
   position: relative;
 
-  // Sticky Header
+  // 搜索栏 - 精确匹配 Figma
   .header {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: $color-background;
-    padding: $spacing-sm $spacing-md;
+    background: #ffffff;
+    padding: 8px 16px;
 
     .searchBar {
       display: flex;
       align-items: center;
-      column-gap: $spacing-sm;
-      background: $color-bg-secondary;
-      border-radius: $border-radius-md;
-      padding: $spacing-sm $spacing-md;
+      column-gap: 12px;
+      background: #f5f5f5;
+      border-radius: 8px;
+      padding: 8px 16px 8px 12px;
       transition: all 0.2s ease;
 
       &:active {
-        background: $color-bg-tertiary;
+        background: #eeeeee;
         transform: scale(0.99);
       }
 
       .searchIcon {
-        color: $color-text-secondary;
-        font-size: $font-size-lg;
+        color: #828282;
+        font-size: 24px;
         width: 24px;
         height: 24px;
       }
 
       .placeholder {
-        color: $color-text-secondary;
-        font-size: $font-size-md;
-        line-height: $line-height-normal;
+        color: #828282;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0;
+        font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
       }
     }
   }
 
-  // Scrollable Content
+  // 可滚动内容区
   .scrollContent {
     flex: 1;
-    padding-bottom: $tabbar-total-height;
+    padding-bottom: calc(49px + env(safe-area-inset-bottom));
     display: flex;
     flex-direction: column;
-    gap: $spacing-md;
+    gap: 16px;
   }
 
-  // Quick Actions - iOS Style
+  // 快捷操作 Pills - 精确匹配 Figma
   .quickActions {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: $spacing-sm;
-    margin: $spacing-sm $spacing-md 0;
+    column-gap: 8px;
+    margin: 8px 16px 0;
 
     .actionItem {
-      display: flex;
+      display: inline-flex;
       flex-shrink: 0;
       align-items: center;
-      gap: 4px;
-      border: 0.5px solid $color-separator;
-      border-radius: $border-radius-md;
-      padding: $spacing-xs $spacing-sm;
+      column-gap: 4px;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      padding: 4px 9px;
       cursor: pointer;
-      background: $color-background;
+      background: #ffffff;
 
       &:active {
-        background: $color-bg-secondary;
+        background: #f5f5f5;
       }
 
       .actionIcon {
-        font-size: $font-size-md;
-        color: $color-text-main;
+        font-size: 18px;
+        color: #1a1a1a;
         width: 18px;
         height: 18px;
       }
 
       span {
-        font-size: $font-size-sm;
-        font-weight: $font-weight-medium;
-        line-height: $line-height-normal;
-        color: $color-text-main;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 22px;
+        letter-spacing: 0;
+        color: #1a1a1a;
+        font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
       }
     }
   }
 
-  // Banner - iOS Style
+  // Banner - 精确匹配 Figma
   .banner {
-    margin: 0 $spacing-md;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 16px 16px 0;
+    border-radius: 8px;
+    padding: 54px 20px 8px;
     height: 160px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: $border-radius-xl;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     position: relative;
     overflow: hidden;
 
     .bannerContent {
-      text-align: center;
+      text-align: left;
       color: white;
       z-index: 1;
 
       .bannerTitle {
-        font-size: $font-size-xxl;
-        font-weight: $font-weight-bold;
-        margin-bottom: $spacing-xs;
-        font-family: $font-family-display;
-      }
-
-      .bannerSubtitle {
-        font-size: $font-size-md;
-        opacity: 0.9;
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 28px;
+        letter-spacing: -0.4px;
+        font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
       }
     }
 
     .pagination {
       position: absolute;
-      bottom: $spacing-sm;
+      bottom: 8px;
       left: 50%;
       transform: translateX(-50%);
-      display: flex;
-      gap: 6px;
+      display: inline-flex;
+      align-items: center;
+      column-gap: 5px;
 
       .dot {
-        width: 6px;
-        height: 6px;
+        flex-shrink: 0;
         border-radius: 50%;
         background: rgba(255, 255, 255, 0.4);
+        width: 5px;
+        height: 5px;
 
         &.active {
-          background: white;
-          width: 18px;
-          border-radius: 3px;
+          background: rgba(0, 0, 0, 0.8);
         }
       }
     }
   }
 
-  // Section Title - iOS Style
+  // 标题 - 精确匹配 Figma
   .sectionTitle {
-    font-size: $font-size-xl;
-    font-weight: $font-weight-bold;
-    color: $color-text-main;
-    padding: 0 $spacing-md;
-    margin-top: $spacing-sm;
-    font-family: $font-family-display;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    padding: 8px 16px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    letter-spacing: -0.32px;
+    color: #000000;
+    font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
   }
 
-  // Categories - iOS Style
+  // 分类列表 - 精确匹配 Figma
   .categoryList {
     display: flex;
-    gap: $spacing-md;
-    padding: $spacing-sm $spacing-md;
+    gap: 16px;
+    padding: 8px 16px;
     overflow-x: auto;
     scrollbar-width: none;
 
@@ -172,7 +178,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: $spacing-xs;
+      gap: 8px;
       cursor: pointer;
 
       &:active {
@@ -180,23 +186,42 @@
       }
 
       .imageWrapper {
-        @include ios-image-circle(76px);
+        width: 76px;
+        height: 76px;
+        border-radius: 50%;
+        background: #f5f5f5;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        flex-shrink: 0;
+
+        .image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
       }
 
       .catTitle {
-        font-size: $font-size-sm;
-        font-weight: $font-weight-medium;
-        color: $color-text-main;
+        flex-shrink: 0;
         text-align: center;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 20px;
+        letter-spacing: 0.14px;
+        color: #161823;
+        font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+        white-space: nowrap;
       }
     }
   }
 
-  // Product List - iOS Style
+  // 商品列表 - 精确匹配 Figma
   .productList {
     display: flex;
-    gap: $spacing-md;
-    padding: $spacing-sm $spacing-md;
+    gap: 12px;
+    padding: 8px 16px;
     overflow-x: auto;
     scrollbar-width: none;
 
@@ -205,10 +230,14 @@
     }
 
     .productCard {
-      display: flex;
+      display: inline-flex;
       flex-direction: column;
-      gap: $spacing-sm;
-      background: $color-background;
+      flex-shrink: 0;
+      align-items: flex-start;
+      justify-content: center;
+      overflow: hidden;
+      row-gap: 12px;
+      background: white;
       cursor: pointer;
 
       &:active {
@@ -216,30 +245,54 @@
       }
 
       .productImageWrapper {
-        @include ios-image-square(148px, $border-radius-lg);
+        width: 148px;
+        height: 148px;
+        border-radius: 8px;
+        background: #f9f9f9;
+        overflow: hidden;
+        flex-shrink: 0;
+
+        .productImage {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
       }
 
       .productInfo {
         display: flex;
         flex-direction: column;
-        gap: 2px;
+        flex-shrink: 0;
+        align-items: flex-start;
+        align-self: stretch;
+        row-gap: 2px;
 
         .brand {
-          font-size: $font-size-sm;
-          color: $color-text-secondary;
+          font-size: 14px;
+          line-height: 22px;
+          letter-spacing: 0;
+          color: #000000;
+          font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
         }
 
         .productName {
-          font-size: $font-size-sm;
-          color: $color-text-main;
-          @include text-ellipsis;
+          font-size: 14px;
+          line-height: 22px;
+          letter-spacing: 0;
+          color: #000000;
+          font-family: Inter, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", SimHei, Arial, Helvetica, sans-serif;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
           max-width: 148px;
         }
 
         .productPrice {
-          font-size: $font-size-md;
-          font-weight: $font-weight-semibold;
-          color: $color-text-main;
+          font-size: 14px;
+          font-weight: 500;
+          line-height: 22px;
+          letter-spacing: 0;
+          color: #000000;
           margin-top: 2px;
         }
       }

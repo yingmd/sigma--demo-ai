@@ -6,7 +6,8 @@ import {
   FiClock, 
   FiUserCheck, 
   FiPackage, 
-  FiChevronRight 
+  FiChevronRight,
+  FiShare2
 } from 'react-icons/fi';
 import styles from './Home.module.scss';
 import { cn } from '@/lib/utils';
@@ -45,6 +46,22 @@ const Home = () => {
           <div className={styles.actionItem} onClick={() => navigate('/quick-orders')}>
             <FiPackage className={styles.actionIcon} />
             <span>订单</span>
+          </div>
+          <div className={styles.actionItem} onClick={() => {
+            if (navigator.share) {
+              navigator.share({
+                title: '发现好物',
+                text: '来看看这些精选商品！',
+                url: window.location.href,
+              });
+            } else {
+              // 复制链接到剪贴板
+              navigator.clipboard.writeText(window.location.href);
+              alert('链接已复制到剪贴板');
+            }
+          }}>
+            <FiShare2 className={styles.actionIcon} />
+            <span>分享</span>
           </div>
         </div>
 
